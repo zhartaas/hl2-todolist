@@ -1,0 +1,157 @@
+definitions:
+  main.Task:
+    properties:
+      activeAt:
+        type: string
+      id:
+        type: string
+      title:
+        type: string
+    type: object
+  main.TaskInput:
+    properties:
+      activeAt:
+        example: "2006-01-02"
+        type: string
+        x-order: "2"
+      title:
+        example: Прочитать книгу
+        type: string
+        x-order: "1"
+    type: object
+  main.TaskResponse:
+    properties:
+      id:
+        type: string
+    type: object
+info:
+  contact: {}
+  description: ToDo list task for "Halyk-Life"
+  title: HL-2 ToDo List
+  version: "1.0"
+paths:
+  /create:
+    post:
+      parameters:
+      - description: insert task title and date
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/main.TaskInput'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.TaskResponse'
+        "404":
+          description: client error
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      summary: Create Task
+      tags:
+      - ToDo list
+  /delete:
+    delete:
+      parameters:
+      - description: insert task id
+        in: query
+        name: id
+        required: true
+        type: string
+      responses:
+        "204":
+          description: No Content
+        "404":
+          description: client error
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      summary: Delete Tasks
+      tags:
+      - ToDo list
+  /getTasks:
+    get:
+      parameters:
+      - description: active or done
+        in: query
+        name: status
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/main.Task'
+            type: array
+        "404":
+          description: client error
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      summary: Get Tasks
+      tags:
+      - ToDo list
+  /taskDone:
+    put:
+      parameters:
+      - description: insert task id
+        in: query
+        name: id
+        required: true
+        type: string
+      responses:
+        "204":
+          description: No Content
+        "404":
+          description: client error
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      summary: Task Done
+      tags:
+      - ToDo list
+  /update:
+    put:
+      parameters:
+      - description: insert task id
+        in: query
+        name: id
+        required: true
+        type: string
+      - description: insert task title and date
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/main.TaskInput'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/main.TaskResponse'
+        "404":
+          description: client error
+          schema:
+            type: string
+        "500":
+          description: internal server error
+          schema:
+            type: string
+      summary: Update Task
+      tags:
+      - ToDo list
+swagger: "2.0"
