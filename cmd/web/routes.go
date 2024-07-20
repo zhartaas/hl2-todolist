@@ -16,7 +16,7 @@ func (app *application) routes() *http.ServeMux {
 
 	mux.HandleFunc("/swagger/", func(w http.ResponseWriter, r *http.Request) {
 		httpSwagger.Handler(
-			httpSwagger.URL("http://localhost:4000/swagger/doc.json"),
+			httpSwagger.URL("https://hl2-todolist.onrender.com/swagger/doc.json"),
 		).ServeHTTP(w, r)
 	})
 	return mux
