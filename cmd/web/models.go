@@ -9,7 +9,7 @@ var LocalMap sync.Map
 
 type TaskInput struct {
 	Title    string `json:"title" example:"Прочитать книгу" extensions:"x-order=1"`
-	ActiveAt string `json:"activeAt" example:"2006-01-02" extensions:"x-order=2"`
+	ActiveAt string `json:"activeAt" example:"2026-01-02" extensions:"x-order=2"`
 }
 
 type Task struct {
