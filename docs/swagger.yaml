@@ -11,7 +11,7 @@ definitions:
   main.TaskInput:
     properties:
       activeAt:
-        example: "2006-01-02"
+        example: "2026-01-02"
         type: string
         x-order: "2"
       title:
@@ -26,7 +26,6 @@ definitions:
     type: object
 info:
   contact: {}
-  description: ToDo list task for "Halyk-Life"
   title: HL-2 ToDo List
   version: "1.0"
 paths:

@@ -234,7 +234,7 @@ const docTemplate = `{
                 "activeAt": {
                     "type": "string",
                     "x-order": "2",
-                    "example": "2006-01-02"
+                    "example": "2026-01-02"
                 }
             }
         },
@@ -256,7 +256,7 @@ var SwaggerInfo = &swag.Spec{
 	BasePath:         "",
 	Schemes:          []string{},
 	Title:            "HL-2 ToDo List",
-	Description:      "ToDo list task for \"Halyk-Life\"",
+	Description:      "",
 	InfoInstanceName: "swagger",
 	SwaggerTemplate:  docTemplate,
 	LeftDelim:        "{{",
