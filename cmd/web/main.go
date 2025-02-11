@@ -11,7 +11,6 @@ import (
 
 // @title HL-2 ToDo List
 // @version 1.0
-// @description ToDo list task for "Halyk-Life"
 type application struct {
 	infoLog  *log.Logger
 	errorLog *log.Logger
